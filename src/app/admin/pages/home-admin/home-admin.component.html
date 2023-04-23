@@ -1,0 +1,50 @@
+<app-nav-admin></app-nav-admin>
+
+<section>
+  <div class="container">
+    <div class="filter">
+      <div class="form" lang="en">
+        <form action=""  [formGroup]="Form">
+          <div class="start">
+            <label for="">Start Date : </label>
+            <input type="date" formControlName='start'>
+          </div>
+          <div class="end">
+            <label for="">End Date     : </label>
+            <input type="date" formControlName='end'>
+          </div>
+          <div class="btn">
+            <button (click)="apply()">Apply</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="cartBox">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>User ID</th>
+            <th>Date</th>
+            <th>Quantity</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of carts">
+            <td>{{item.userId}}</td>
+            <td>{{item.date | date:'shortDate'}}</td>
+            <td>{{item.products.length}}</td>
+            <td class="btnS">
+              <button class="delete" (click)="deleteCart(item.id)" >Delete</button>
+              <button class="view" routerLink="cart/{{item.id}}"  >View</button>
+
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+
+  </div>
+</section>
+<!-- <app-footer></app-footer> -->

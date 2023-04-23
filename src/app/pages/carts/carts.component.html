@@ -1,0 +1,67 @@
+<app-nav></app-nav>
+<section>
+  <div class="container">
+    <div class="cartBox">
+      <h1 class="head">Shopping Cart</h1>
+      <div class="headCart">
+        <p class="lead">
+          You have
+          <label class="text-danger">{{ cartProducts.length }}</label> item in
+          your cart
+        </p>
+        <span class="clear" (click)="clear()">Clear Shopping Cart</span>
+      </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th style="width: 25%">Quantity</th>
+            <th>Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cartProducts; let i = index">
+            <td><img src="{{ item.item.image }}" alt="" /></td>
+            <td class="title">{{ item.item.title }}</td>
+            <td>{{ item.item.price }} $</td>
+            <td>
+              <div class="quantity">
+                <button class="add" (click)="addAmount(i)">+</button>
+                <input
+                  lang="en"
+                  class="form-control"
+                  (change)="changAmount(i, $event)"
+                  value="{{ item.quantity }}"
+                  type="number"
+                  [min]="1"
+                  min="1"
+                />
+                <button class="del" (click)="minsAmount(i)">-</button>
+              </div>
+            </td>
+            <td>{{ item.quantity * item.item.price }} $</td>
+            <td>
+              <button class="delete" (click)="deleteProduct(i)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th class="total">Total : {{ totalPrice }} $</th>
+            <th><button class="order" (click)="order()">Order Now</button></th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div class="alert" role="alert" *ngIf="orderDone">
+      <strong>Well done!</strong> Your Order is Successfully Send
+    </div>
+  </div>
+</section>

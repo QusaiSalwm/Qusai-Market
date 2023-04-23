@@ -1,0 +1,29 @@
+<nav>
+  <div class="container">
+    <div class="all">
+      <div class="logo">
+      <h2 routerLink="/">Qusai-Market / Admin</h2>
+    </div>
+
+    <div class="links" [class.is-open]="openMenu" [style.display]="display">
+      <a  [style.display]="display" routerLink="/admin" >Home</a>
+      <a  [style.display]="display" routerLink="/admin/products"  >Products</a>
+    </div>
+
+    <div class="burger" (click)="onClick()">
+      <i
+        class=""
+        aria-hidden="true"
+        id=" menu-icon"
+        [className]="className"
+      ></i>
+    </div>
+  </div>
+  </div>
+
+
+
+
+</nav>
+
+

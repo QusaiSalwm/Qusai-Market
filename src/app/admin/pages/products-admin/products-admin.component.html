@@ -1,0 +1,41 @@
+<app-nav-admin></app-nav-admin>>
+
+
+<section>
+  <div class="container">
+    <div class="cartBox">
+      <h1 class="head">Products</h1>
+      <div class="headCart">
+        <p class="lead">
+          There are
+          <label class="text-danger">{{products.length}}</label> products in
+          Qusai-Market
+        </p>
+        <span class="add" routerLink="add-product" >Add New Product</span>
+      </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of products">
+            <td><img src='{{item.image}}' alt="" /></td>
+            <td class="title">{{item.title}}</td>
+            <td>{{item.category}}</td>
+            <td>{{item.price}} $</td>
+            <td class="btns">
+              <button routerLink="update-product/{{item.id}}">Update</button>
+              <button class="delete" (click)="delete(item.id)">Delete</button>
+            </td>
+</tr>
+        </tbody>
+      </table>
+      </div></div>
+
+</section>

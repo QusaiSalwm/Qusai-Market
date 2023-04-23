@@ -1,0 +1,58 @@
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.2/css/all.min.css"
+  />
+  <!-- <app-spinner></app-spinner> -->
+  <app-nav></app-nav>
+<section>
+  <div class="container">
+    <div class="categories">
+      <label for="">Categories :</label>
+      <select name="" id="" (change)="filter($event)">
+        <option value="" selected>All</option>
+        <option  *ngFor="let item of categories" value="{{item}}"> {{item}}</option>
+      </select>
+    </div>
+
+    <div class="products">
+      <div class="product"  *ngFor="let item of products">
+        <div class="img">
+          <a routerLink="products/details/{{item.id}}">
+          <img src="{{item.image}}" alt="">
+
+          </a>
+        </div>
+
+        <div class="info">
+          <div class="title">
+            <h4>{{item.title}}</h4>
+          </div>
+          <div class="category">
+            <p>{{item.category}}</p>
+          </div>
+          <div>
+             <div class="order" >
+            <!-- <div class="cart" (click)="display($event)">
+              <p>cart </p>
+            </div> -->
+            <div class="inputCart">
+              <input value="0" placeholder="#" [(ngModel)]="playerName" type="number" name="" id="">
+              <button  (click)="click(item)">Add Cart</button>
+            </div>
+            <div class="price">
+              <p>{{item.price}}$</p>
+            </div>
+          </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

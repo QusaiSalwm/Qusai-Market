@@ -1,0 +1,23 @@
+<app-nav></app-nav>
+<app-spinner></app-spinner>
+<section>
+  <div class="container">
+    <div class="content">
+      <div class="img">
+        <img src="{{details.image}}" alt="">
+      </div>
+
+      <div class="data">
+        <div class="head">
+          <h2> Details :</h2>
+        </div>
+        <p><strong>Title :</strong>  {{details.title}}</p>
+        <p><strong>Category :</strong> {{details.category}}</p>
+        <p><strong>Description :</strong> {{details.description}}</p>
+        <p><strong>Rate :</strong> {{details.rating.rate}} ⭐</p>
+        <p><strong>Price :</strong> {{details.price}} $</p>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>
